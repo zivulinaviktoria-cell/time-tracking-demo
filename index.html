@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Демо: Распределённая система учёта рабочего времени | ВлГУ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разработка распределенной системы учета рабочего времени</title>
     <style>
         * {
             margin: 0;
@@ -20,21 +20,18 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Карточка статьи (академический блок) */
         .paper-card {
             background: white;
             border-radius: 24px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             padding: 2rem;
-            margin-bottom: 2.5rem;
-            transition: all 0.2s;
+            margin-bottom: 2rem;
         }
 
-        /* Стили под ВАК / научный журнал */
         .udk {
             font-size: 0.85rem;
             color: #2c5282;
@@ -45,7 +42,7 @@
         }
 
         h1 {
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin: 0.5rem 0 0.75rem;
             color: #0f172a;
@@ -74,7 +71,7 @@
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin: 1.5rem 0 1rem;
             color: #0f172a;
             font-weight: 600;
@@ -83,7 +80,7 @@
         }
 
         h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin: 1.2rem 0 0.8rem;
             color: #1e293b;
         }
@@ -93,7 +90,6 @@
             border-collapse: collapse;
             margin: 1.2rem 0;
             font-size: 0.85rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
             border-radius: 16px;
             overflow: hidden;
         }
@@ -123,139 +119,14 @@
             font-weight: bold;
         }
 
-        /* ДЕМО-БЛОК: интерактивная панель учёта времени */
-        .demo-panel {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-radius: 32px;
-            padding: 1.8rem;
-            margin: 2rem 0 2rem;
-            color: white;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
+        .badge-partial {
+            color: #e68a2e;
+            font-weight: bold;
         }
 
-        .demo-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 1rem;
-        }
-
-        .demo-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 14px;
-            border-radius: 40px;
-        }
-
-        .sync-status {
-            background: #0f2e1f;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-family: monospace;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sync-led {
-            width: 10px;
-            height: 10px;
-            border-radius: 10px;
-            background: #22c55e;
-            box-shadow: 0 0 4px #22c55e;
-        }
-
-        .role-selector {
-            background: #334155;
-            border-radius: 40px;
-            padding: 4px;
-            display: flex;
-            gap: 6px;
-        }
-
-        .role-btn {
-            background: transparent;
-            border: none;
-            color: #cbd5e1;
-            padding: 6px 16px;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: 0.1s;
-        }
-
-        .role-btn.active {
-            background: #3b82f6;
-            color: white;
-        }
-
-        /* Карточка виджета времени */
-        .track-card {
-            background: white;
-            border-radius: 28px;
-            padding: 1.5rem;
-            color: #0f172a;
-            margin-top: 1rem;
-        }
-
-        .current-time-display {
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: monospace;
-            letter-spacing: 1px;
-        }
-
-        .btn-track {
-            background: #3b82f6;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.1s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .btn-track.off {
-            background: #ef4444;
-        }
-
-        .entries-list {
-            margin-top: 1.8rem;
-        }
-
-        .entry-item {
-            background: #f8fafc;
-            border-radius: 18px;
-            padding: 12px 16px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            border-left: 5px solid #3b82f6;
-        }
-
-        .sync-badge {
-            font-size: 0.7rem;
-            background: #e2e8f0;
-            padding: 3px 8px;
-            border-radius: 40px;
-            color: #334155;
-        }
-
-        .offline-badge {
-            background: #fef9c3;
-            color: #854d0e;
+        ul {
+            margin-left: 1.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-links {
@@ -266,107 +137,131 @@
         }
 
         @media (max-width: 760px) {
-            .paper-card, .demo-panel {
+            .paper-card {
                 padding: 1.2rem;
             }
             h1 {
                 font-size: 1.5rem;
-            }
-            .demo-header {
-                flex-direction: column;
-                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- НАУЧНАЯ СТАТЬЯ (оформление как в примере, но компактно) -->
     <div class="paper-card">
         <div class="udk">УДК 004.415.2</div>
         <h1>РАЗРАБОТКА РАСПРЕДЕЛЕННОЙ СИСТЕМЫ УЧЁТА РАБОЧЕГО ВРЕМЕНИ</h1>
         <div class="authors">В.Ю. Живулина (магистрант)<sup>1</sup>, И.Р. Дубов (д.т.н., кафедра ВТиСУ)<sup>2</sup></div>
         <div class="authors" style="font-size:0.85rem; border-bottom: none; padding-bottom:0;">
-            <sup>1</sup> ВлГУ, ИИТЭ, кафедра ВТиСУ, группа ВТм-125<br>
+            <sup>1</sup> ВлГУ, Институт информационных технологий и электроники, кафедра ВТиСУ, группа ВТм-125<br>
             <sup>2</sup> ВлГУ, Институт информационных технологий и электроники, Кафедра ВТиСУ
         </div>
 
         <div class="annotation">
-            <strong>Аннотация:</strong> В статье рассматривается разработка распределенной системы управления рабочим временем, обеспечивающей доступность на различных типах устройств и надежную двунаправленную синхронизацию данных. Актуальность работы обусловлена переходом компаний на гибридный и удаленный форматы работы, а также требованиями импортозамещения. Проведен сравнительный анализ аналогов. Предложена архитектура с поддержкой офлайн-режима и работой на RED OS.
+            <strong>Аннотация:</strong> В статье рассматривается разработка распределенной системы управления рабочим временем, обеспечивающей доступность на различных типах устройств и надежную двунаправленную синхронизацию данных. Актуальность работы обусловлена переходом компаний на гибридный и удаленный форматы работы, а также требованиями импортозамещения в сфере информационных технологий. Проведен сравнительный анализ существующих аналогов, выявлены их недостатки. Предложена архитектура системы с поддержкой офлайн-режима и работой на отечественной операционной системе RED OS.
         </div>
         <div class="keywords">
-            <strong>Ключевые слова:</strong> управление рабочим временем, распределенная система, офлайн-синхронизация, RED OS, импортозамещение, Local-first архитектура.
+            <strong>Ключевые слова:</strong> управление рабочим временем, распределенная система, офлайн-синхронизация, RED OS, импортозамещение, кроссплатформенная разработка, Local-first архитектура.
         </div>
 
-        <h2>1. Актуальность и сравнительный анализ</h2>
-        <p>Современные компании переходят на гибридный формат, сотрудники используют множество устройств. Традиционные системы учёта не отвечают требованиям надёжности и мобильности. Обоснование выбора архитектуры выполнено через сравнение с существующими аналогами (таблица 1).</p>
+        <h2>Актуальность работы</h2>
+        <p>Актуальность разработки распределенной системы управления рабочим временем обусловлена несколькими современными тенденциями и задачами в области корпоративного управления и информационных технологий.</p>
+        <ul>
+            <li><strong>Рост потребности в гибридном и удаленном форматах работы.</strong> Современные компании все чаще переходят на гибридный график, когда сотрудники часть времени работают из офиса, а часть — удаленно. Традиционные системы учета рабочего времени (пропускные системы, локальные терминалы, Excel-таблицы) не отвечают требованиям такого формата, так как привязывают сотрудника к физическому месту.</li>
+            <li><strong>Развитие технологий мобильности и кроссплатформенности.</strong> Сотрудники используют различные устройства: смартфоны, планшеты, ноутбуки на разных операционных системах. Система учета рабочего времени должна быть доступна на всех типах устройств и обеспечивать единый пользовательский опыт независимо от платформы.</li>
+            <li><strong>Повышение требований к надежности и автономности.</strong> В условиях нестабильного интернет-соединения (командировки, полевые работы, удаленные офисы) система должна сохранять полную работоспособность, а данные — не теряться. Это требует реализации полноценного офлайн-режима с последующей синхронизацией.</li>
+            <li><strong>Импортозамещение и работа на отечественном ПО.</strong> В рамках государственной политики импортозамещения многие российские компании переходят на отечественные операционные системы, в частности RED OS. Существующие системы управления рабочим временем, как правило, не имеют официальной поддержки российских ОС, что создает потребность в разработке собственного решения.</li>
+            <li><strong>Экономическая целесообразность.</strong> Разработка собственной технологической базы способствует снижению зависимости от зарубежного ПО, повышению конкурентоспособности отечественных решений и продвижению инновационных технологий на рынке.</li>
+        </ul>
+        <p>Обосновать востребованность разработки можно только путем сравнения ее характеристик с характеристиками аналогов. Достоверность результатов проводимого сравнения зависит от правильности выбора аналога. В общем случае рекомендуется выбирать аналог, наиболее близкий по функциональному назначению, присутствующий на рынке сбыта с известными техническими и функциональными характеристиками.</p>
+
+        <h2>Сравнительный анализ существующих аналогов</h2>
+        <p>Практическая реализация поставленной задачи начинается с этапа сравнительного анализа существующих технических решений. В данной статье сравнение проводится с наиболее популярными системами учета рабочего времени: Toggl Track, Clockify, Harvest, TimeCamp, RescueTime, Everhour и TMetric. Сравнение осуществляется по следующим критериям: наличие полноценного офлайн-режима, надежность синхронизации, кроссплатформенность, поддержка Linux и RED OS, инвазивность методов слежения, простота интерфейса.</p>
+        <p>Для удобного сравнения используется таблица 1, где знаком «+» обозначено наличие или преимущество, знаком «–» — отсутствие или недостаток.</p>
 
         <h3>Таблица 1 – Сравнение с аналогами</h3>
         <table>
-            <thead><tr><th>Критерий</th><th>Toggl Track</th><th>Clockify</th><th>Harvest</th><th>TimeCamp</th><th>RescueTime</th><th>Everhour</th><th>TMetric</th></tr></thead>
+            <thead>
+                <tr><th>Критерий</th><th>Toggl Track</th><th>Clockify</th><th>Harvest</th><th>TimeCamp</th><th>RescueTime</th><th>Everhour</th><th>TMetric</th></tr>
+            </thead>
             <tbody>
-                <tr><td>Офлайн-режим</td><td class="badge-plus">+</td><td>+</td><td class="badge-minus">-</td><td>+</td><td>+</td><td class="badge-minus">-</td><td>+</td></tr>
-                <tr><td>Надежная синхронизация</td><td class="badge-minus">-</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
-                <tr><td>Поддержка RED OS</td><td class="badge-minus">-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="badge-minus">-</td></tr>
-                <tr><td>Простота интерфейса</td><td>+</td><td class="badge-minus">-</td><td>+</td><td>-</td><td>+</td><td>+</td><td>±</td></tr>
+                <tr><td>Офлайн-режим</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td></tr>
+                <tr><td>Надежная синхронизация</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td></tr>
+                <tr><td>Кроссплатформенность</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td></tr>
+                <tr><td>Поддержка Linux</td><td class="badge-minus">–</td><td class="badge-partial">±</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-partial">±</td></tr>
+                <tr><td>Поддержка RED OS</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td><td class="badge-minus">–</td></tr>
+                <tr><td>Простота интерфейса</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-partial">±</td></tr>
+                <tr><td>Отсутствие слежения</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-minus">–</td><td class="badge-plus">+</td><td class="badge-plus">+</td><td class="badge-plus">+</td></tr>
             </tbody>
         </table>
-        <p><strong>Вывод анализа:</strong> Ни один аналог не сочетает полноценный офлайн-режим, надёжную синхронизацию и поддержку RED OS — это определяет нишу для разрабатываемой системы.</p>
 
-        <h2>2. Архитектура и ключевые принципы</h2>
-        <p>Система строится по клиент-серверной модели с принципом Local-first. Локальная база данных SQLite — источник истины. Сервер выполняет роль реплики для синхронизации.</p>
-        <ul style="margin-left: 1.8rem; margin-bottom: 1rem;">
-            <li><strong>Офлайн-работа:</strong> SQLite на каждом клиенте → полная работоспособность без интернета.</li>
-            <li><strong>Надёжная синхронизация:</strong> очереди изменений, версионирование (sync_version), Last Write Wins.</li>
-            <li><strong>Кроссплатформенность:</strong> Flutter (iOS/Android), React (web), Avalonia UI (RED OS/Windows).</li>
-            <li><strong>Ролевая модель:</strong> Сотрудник / Руководитель / Администратор.</li>
+        <p><strong>Анализ результатов сравнения:</strong></p>
+        <ul>
+            <li><strong>Toggl Track</strong> отличается простым интерфейсом и наличием офлайн-режима, но страдает от проблем с надежностью синхронизации между устройствами и не поддерживает Linux.</li>
+            <li><strong>Clockify</strong> привлекает бесплатным тарифом, но имеет перегруженный интерфейс и использует инвазивные методы слежения (скриншоты, GPS), что вызывает недоверие сотрудников.</li>
+            <li><strong>Harvest</strong> обладает отличным функционалом выставления счетов, но не имеет полноценного офлайн-режима.</li>
+            <li><strong>TimeCamp</strong> предлагает автоматическое отслеживание времени, но сложен в настройке и также использует методы мониторинга.</li>
+            <li><strong>RescueTime</strong> полностью автоматизирован, но ориентирован только на личное использование и официально не поддерживает Linux.</li>
+            <li><strong>Everhour</strong> глубоко интегрируется с системами управления проектами, но без них теряет функциональность.</li>
+            <li><strong>TMetric</strong> имеет надежную синхронизацию и офлайн-режим, но не поддерживает RED OS официально.</li>
+        </ul>
+        <p><strong>Ключевой вывод сравнительного анализа:</strong> ни один из существующих аналогов не обеспечивает одновременно полноценный офлайн-режим, надежную синхронизацию и официальную поддержку отечественной операционной системы RED OS. Это определяет нишу для разрабатываемой системы.</p>
+
+        <h2>Архитектура разрабатываемой системы</h2>
+        <p>Система строится по клиент-серверной модели с принципом Local-first (сначала локальные данные). Каждый клиент имеет локальную базу данных, являющуюся источником истины для пользовательского интерфейса. Сервер выступает как реплика для синхронизации данных между устройствами.</p>
+        
+        <h3>Ключевые принципы архитектуры</h3>
+        <ul>
+            <li><strong>Офлайн-работа</strong> – использование локальной базы данных SQLite на каждом клиентском устройстве, обеспечивающее полную работоспособность без интернета.</li>
+            <li><strong>Надежная синхронизация</strong> – применение очередей изменений, версионирования записей и механизма разрешения конфликтов на основе принципа «последняя запись побеждает» (Last Write Wins).</li>
+            <li><strong>Кроссплатформенность</strong> – единая кодовая база для разных типов устройств с использованием кроссплатформенных фреймворков.</li>
+            <li><strong>Поддержка RED OS</strong> – выбор технологий, полностью совместимых с российской операционной системой.</li>
         </ul>
 
-        <h2>3. Результаты и дальнейшая работа</h2>
-        <p>Разработана архитектура, обеспечивающая офлайн-работу и синхронизацию. Проведён сравнительный анализ, подтверждающий преимущества. Дальнейшие этапы: реализация серверной части на C# (.NET 8), разработка клиентских приложений, тестирование.</p>
-    </div>
+        <h3>Структура базы данных</h3>
+        <p>Основные сущности системы включают:</p>
+        <ul>
+            <li><strong>Users</strong> – пользователи системы (id, email, роль, полное имя, sync_version)</li>
+            <li><strong>TimeEntries</strong> – временные записи (id, user_id, start_time, end_time, duration, тип времени, sync_version, статус)</li>
+            <li><strong>Projects</strong> – проекты для привязки времени</li>
+            <li><strong>Reports</strong> – сформированные отчеты</li>
+            <li><strong>AuditLogs</strong> – журнал действий администраторов</li>
+            <li><strong>SyncQueue</strong> – очередь операций для синхронизации</li>
+        </ul>
+        <p>Поле sync_version служит для отслеживания изменений и обеспечения корректной синхронизации между клиентами и сервером.</p>
 
-    <!-- ДЕМОНСТРАЦИОННАЯ ЧАСТЬ: ЖИВОЙ ПРОТОТИП СИСТЕМЫ УЧЁТА ВРЕМЕНИ -->
-    <div class="demo-panel">
-        <div class="demo-header">
-            <span class="demo-title">⏱️ Демо-стенд: учёт рабочего времени</span>
-            <div class="sync-status">
-                <div class="sync-led"></div> <span id="syncText">Синхронизировано</span>
-            </div>
-            <div class="role-selector" id="roleSelector">
-                <button class="role-btn active" data-role="employee">Сотрудник</button>
-                <button class="role-btn" data-role="manager">Руководитель</button>
-                <button class="role-btn" data-role="admin">Администратор</button>
-            </div>
-        </div>
-        <div class="track-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <div>
-                    <div style="font-size: 0.8rem; color: #475569;">Текущее время (МСК)</div>
-                    <div class="current-time-display" id="liveClock">--:--:--</div>
-                </div>
-                <button class="btn-track" id="workBtn">▶ Начать рабочий день</button>
-            </div>
-            <div style="margin-top: 24px;">
-                <div style="font-weight: 600; margin-bottom: 12px;">📋 Журнал активности (локальная SQLite + очередь синхронизации)</div>
-                <div id="entriesContainer">
-                    <div class="entry-item" style="opacity:0.7;">➡️ Нажмите «Начать день» — запись появится в локальной БД</div>
-                </div>
-                <div style="font-size: 0.75rem; margin-top: 12px; background:#eef2ff; padding: 8px 12px; border-radius: 20px; color:#1e40af;">
-                    💡 Офлайн-демо: отключите интернет (эмуляция), нажмите кнопку — данные сохранятся в очереди. При восстановлении — автоматическая синхронизация.
-                </div>
-            </div>
-        </div>
-        <div style="margin-top: 1rem; font-size: 0.7rem; text-align: right; opacity:0.7;">
-            * прототип демонстрирует локальное хранилище (IndexedDB), версионирование записей и отложенную синхронизацию
-        </div>
-    </div>
+        <h3>Ролевая модель системы</h3>
+        <p>Система реализует три роли пользователей:</p>
+        <ul>
+            <li><strong>Сотрудник</strong> – отметка начала/конца дня, добавление перерывов, просмотр своих отчетов.</li>
+            <li><strong>Руководитель</strong> – все возможности сотрудника + просмотр данных команды и сводных отчетов.</li>
+            <li><strong>Администратор</strong> – все возможности руководителя + управление пользователями, настройка прав, просмотр всех данных.</li>
+        </ul>
 
-    <!-- Блок с выводами и литературой (как в примере, но кратко) -->
-    <div class="paper-card">
-        <h2>Заключение</h2>
-        <p>Разработанная архитектура обеспечивает полноценную офлайн-работу (SQLite), надёжную синхронизацию через очереди и версионирование, а также полную совместимость с RED OS. Это закрывает рыночную нишу, в которой отсутствуют конкурентоспособные отечественные решения.</p>
-        <h3>Список используемой литературы</h3>
+        <h2>Реализация ключевых требований</h2>
+        <h3>Таблица 2 – Реализация требований к системе</h3>
+        <table>
+            <thead><tr><th>Требование</th><th>Реализация</th></tr></thead>
+            <tbody>
+                <tr><td>Офлайн-работа</td><td>Локальная база данных SQLite на каждом клиенте. Пользователь может фиксировать рабочее время даже при полном отсутствии интернета.</td></tr>
+                <tr><td>Надежная синхронизация</td><td>Очереди изменений накапливают действия, выполненные офлайн. Версионирование записей отслеживает изменения. Механизм разрешения конфликтов гарантирует сохранность правок с разных устройств.</td></tr>
+                <tr><td>Кроссплатформенность</td><td>Мобильные приложения на Flutter (iOS/Android), веб-приложение на React (любой браузер), десктопное приложение на Avalonia UI (RED OS/Windows).</td></tr>
+                <tr><td>Работа на RED OS</td><td>Серверная часть на C# (.NET 8) и PostgreSQL полностью функционируют на RED OS. Десктопное приложение для администраторов также работает на RED OS.</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Выводы</h2>
+        <p>В результате выполнения работы разработана архитектура распределенной системы управления рабочим временем, обеспечивающая:</p>
+        <ol style="margin-left: 1.8rem; margin-bottom: 1rem;">
+            <li><strong>Полноценную офлайн-работу</strong> – благодаря локальным базам данных SQLite на каждом клиенте.</li>
+            <li><strong>Надежную синхронизацию</strong> – за счет очередей изменений, версионирования и механизма разрешения конфликтов.</li>
+            <li><strong>Кроссплатформенность</strong> – мобильные приложения на Flutter, веб-приложение на React, десктопное приложение на Avalonia UI.</li>
+            <li><strong>Работу на RED OS</strong> – серверная часть и десктопное приложение полностью совместимы с отечественной операционной системой.</li>
+        </ol>
+        <p>Проведен сравнительный анализ существующих аналогов, выявивший их ключевые недостатки: проблемы с синхронизацией (Toggl Track), отсутствие офлайн-режима (Harvest), инвазивные методы слежения (Clockify, TimeCamp), отсутствие поддержки RED OS (все аналоги). Разработанная система закрывает выявленную рыночную нишу, предлагая решение, сочетающее надежность, автономность и соответствие требованиям импортозамещения.</p>
+        <p>Дальнейшие этапы работы включают: реализацию серверной части на C# (.NET 8), разработку клиентских приложений на выбранных фреймворках, тестирование и отладку, а также подготовку документации для внедрения в российских компаниях, переходящих на отечественное программное обеспечение.</p>
+
+        <h2>Список используемой литературы</h2>
         <ol style="margin-left: 1.5rem; font-size: 0.85rem; line-height: 1.4;">
             <li>Соловьев С. В., Цой Р. И., Гринкруг Л. С. Технология разработки прикладного программного обеспечения. – URL: https://monographies.ru/ru/book/view?id=141 (дата обращения: 19.03.2026).</li>
             <li>Real Python. Python GUI Programming With Tkinter. – URL: https://realpython.com/python-gui-tkinter/ (дата обращения: 05.03.2026).</li>
@@ -383,147 +278,11 @@
             <li>Software development // IEEE Xplore. – URL: https://ieeexplore.ieee.org/abstract/document/1702382 (дата обращения: 26.04.2026).</li>
             <li>Analysis of Software Development Methodologies // URL: https://d1wqtxts1xzle7.cloudfront.net/107291988/paper_202-libre.pdf (дата обращения: 19.05.2026).</li>
         </ol>
+
         <div class="footer-links">
-            © 2026 ВлГУ, кафедра ВТиСУ | Демонстрация работы распределённой системы учёта времени
+            © 2026 ВлГУ, кафедра ВТиСУ | Разработка распределенной системы учета рабочего времени
         </div>
     </div>
 </div>
-
-<script>
-    // Демонстрация работы: локальное хранилище (эмуляция SQLite + очередь синхронизации)
-    let timeEntries = JSON.parse(localStorage.getItem('workEntries')) || [];
-    let syncQueue = JSON.parse(localStorage.getItem('syncQueue')) || [];
-    let currentRole = 'employee';
-    let workActive = false;
-    let currentStart = null;
-
-    function renderEntries() {
-        const container = document.getElementById('entriesContainer');
-        if(!container) return;
-        if(timeEntries.length === 0) {
-            container.innerHTML = '<div class="entry-item" style="opacity:0.7;">✨ Нет записей. Нажмите "Начать рабочий день"</div>';
-            return;
-        }
-        container.innerHTML = timeEntries.map(entry => {
-            const syncInfo = entry.synced ? '<span class="sync-badge">✅ синхронизировано</span>' : '<span class="sync-badge offline-badge">⏳ ожидает синхронизации</span>';
-            return `
-                <div class="entry-item">
-                    <div><strong>${entry.date}</strong>  ${entry.startTime} → ${entry.endTime || '...'} (${entry.duration || 'в процессе'})</div>
-                    <div>${syncInfo}</div>
-                </div>
-            `;
-        }).join('');
-    }
-
-    function saveToLocal() {
-        localStorage.setItem('workEntries', JSON.stringify(timeEntries));
-        localStorage.setItem('syncQueue', JSON.stringify(syncQueue));
-        renderEntries();
-        updateSyncStatusDisplay();
-    }
-
-    function updateSyncStatusDisplay() {
-        const pendingCount = timeEntries.filter(e => !e.synced).length;
-        const syncSpan = document.getElementById('syncText');
-        if(pendingCount > 0) {
-            syncSpan.innerText = `🔄 синхронизация (${pendingCount} в очереди)`;
-            document.querySelector('.sync-led').style.background = '#eab308';
-        } else {
-            syncSpan.innerText = '✅ синхронизировано с сервером (PostgreSQL)';
-            document.querySelector('.sync-led').style.background = '#22c55e';
-        }
-    }
-
-    // Эмуляция синхронизации: через 2 секунды после добавления "отправляет" на сервер (если онлайн)
-    function simulateSyncAfterDelay(entryId) {
-        setTimeout(() => {
-            // Эмуляция сетевой доступности (всегда true в демо, но показываем механизм)
-            const isOnline = navigator.onLine !== false; 
-            if(isOnline) {
-                // Находим запись и помечаем synced = true
-                const entryIndex = timeEntries.findIndex(e => e.id === entryId);
-                if(entryIndex !== -1 && !timeEntries[entryIndex].synced) {
-                    timeEntries[entryIndex].synced = true;
-                    saveToLocal();
-                }
-            } else {
-                // если офлайн — остаётся в очереди, но при следующем восстановлении будет повтор
-                console.log('Офлайн-режим: запись в очереди синхронизации');
-                updateSyncStatusDisplay();
-            }
-        }, 1800);
-    }
-
-    function addWorkSession() {
-        const now = new Date();
-        const dateStr = now.toLocaleDateString('ru-RU');
-        const timeStr = now.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'});
-        const newId = Date.now();
-        const newEntry = {
-            id: newId,
-            date: dateStr,
-            startTime: timeStr,
-            endTime: null,
-            duration: null,
-            synced: false,
-            version: 1,
-            userId: 'demo_user'
-        };
-        timeEntries.unshift(newEntry);
-        saveToLocal();
-        simulateSyncAfterDelay(newId);
-    }
-
-    // Кнопка Начать день
-    document.getElementById('workBtn').addEventListener('click', () => {
-        addWorkSession();
-    });
-
-    // Ролевая модель: демонстрация интерфейса (меняем доступные опции)
-    const roleBtns = document.querySelectorAll('.role-btn');
-    roleBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            roleBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentRole = btn.dataset.role;
-            // Просто визуальный фидбек для демонстрации (у администратора показываем "Панель управления")
-            if(currentRole === 'admin') {
-                alert('[Администратор] Расширенные права: просмотр всех аудит-логов и управление пользователями (демо)');
-            } else if(currentRole === 'manager') {
-                alert('[Руководитель] Доступны сводные отчёты по команде');
-            } else {
-                alert('[Сотрудник] Стандартный режим учёта времени');
-            }
-        });
-    });
-
-    // Живые часы
-    function updateClock() {
-        const clockDiv = document.getElementById('liveClock');
-        if(clockDiv) {
-            const d = new Date();
-            clockDiv.innerText = d.toLocaleTimeString('ru-RU');
-        }
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // Имитация периодического фонового "обмена" с сервером для демонстрации
-    setInterval(() => {
-        // Имитация пакетной синхронизации: проходим по несинхронизированным и "отправляем"
-        let changed = false;
-        timeEntries = timeEntries.map(entry => {
-            if(!entry.synced && navigator.onLine !== false) {
-                changed = true;
-                return {...entry, synced: true};
-            }
-            return entry;
-        });
-        if(changed) saveToLocal();
-    }, 5000);
-
-    renderEntries();
-    updateSyncStatusDisplay();
-</script>
 </body>
 </html>
